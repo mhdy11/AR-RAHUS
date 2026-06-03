@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Parent Tracker</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    color:#0066ff;
+}
+
+button{
+    width:90%;
+    padding:15px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    background:#0066ff;
+    color:white;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Parent Tracker</h1>
+
+<button onclick="showLocation()">Duba Wurin Yaro</button>
+
+<p id="result"></p>
+
+<script>
+function showLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            function(position){
+                document.getElementById("result").innerHTML =
+                "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+            }
+        );
+    }else{
+        document.getElementById("result").innerHTML =
+        "GPS baya aiki";
+    }
+}
+</script>
+
+</body>
+</html>
